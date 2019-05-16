@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}My_resume{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</head>
+<body>
+<main class="container">
+    <header>
+        <h1 class="text-center ">
+            <a href="/" class="text-success"><strong>Resume</strong></a>
+            <small class="text-muted sub-title">for myself</small>
+        </h1>
+    </header>
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+
+    {% endfor %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="text-center">
+        <small> &copy; 2019 <a href="http://greyli.com" title="Written by WeiYe">WeiYe</a> /
+                <a href="https://github.com/Handsomeweiye" title="Welcome to my GitHub">GitHub</a> /
+                <a href="http://helloflask.com" title="A resume of my project">My_resume</a>
+        </small>
+    </footer>
+
+</body>
+</html>
