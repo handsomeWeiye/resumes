@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
-
+{% from 'bootstrap/form.html' import render_form %}
 
 {% block content %}
+
+
+
    <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="float-lg-none"><img src=http://chuantu.xyz/t6/702/1557929597x1033347913.png /></div>
+			<div class="float-lg-none"><img src="https://i.ibb.co/s2mp4Qq/1.png" alt="1" border="0"></div>
             <div class="float-lg-none">
 			<ul>
 				<li class="list-item">
@@ -35,8 +38,8 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div class="card text-white bg-primary">
-				<h5 class="card-header">
-					程序语言<img src=http://chuantu.xyz/t6/702/1557932264x2073530527.png />
+				<h5 class="card-header  bg-primary">
+					程序语言<img src="https://i.ibb.co/jhns3rz/1.png" alt="1" border="0">
 				</h5>
 				<div class="card-body">
 					<p class="card-text">
@@ -48,8 +51,8 @@
 		</div>
 		<div class="col-md-3">
 			<div class="card text-white bg-success">
-				<h5 class="card-header">
-					框架<img src=http://chuantu.xyz/t6/702/1557928332x2890149604.png />
+				<h5 class="card-header bg-success">
+					框架<img src="https://i.ibb.co/qpMgX21/flask.png" alt="flask" border="0">
 				</h5>
 				<div class="card-body">
 					<p class="card-text">
@@ -61,8 +64,8 @@
 		</div>
 		<div class="col-md-3">
 			<div class="card text-white bg-info">
-				<h5 class="card-header">
-					爬虫与数据分析<img src=http://chuantu.xyz/t6/702/1557930274x2073530527.png />
+				<h5 class="card-header bg-info">
+					爬虫与数据分析<img src="https://i.ibb.co/fxGLgNX/3.png" alt="3" border="0">
 				</h5>
 				<div class="card-body">
 					<p class="card-text">
@@ -75,8 +78,8 @@
 		</div>
 		<div class="col-md-3">
 			<div class="card text-white bg-danger">
-				<h5 class="card-header">
-					机器学习<img src=http://chuantu.xyz/t6/702/1557932297x2073530527.png />
+				<h5 class="card-header bg-danger">
+					机器学习<img src="https://i.ibb.co/fdk07tv/2.png" alt="2" border="0">
 				</h5>
 				<div class="card-body">
 					<p class="card-text">
@@ -99,7 +102,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="card text-white bg-danger">
-				<h5 class="card-header">
+				<h5 class="card-header bg-danger">
 					Execution
 				</h5>
 				<div class="card-body">
@@ -112,7 +115,7 @@
 		</div>
 		<div class="col-md-4">
 			<div class="card text-white bg-warning">
-				<h5 class="card-header">
+				<h5 class="card-header bg-warning">
 					lifelong-learning
 				</h5>
 				<div class="card-body">
@@ -125,7 +128,7 @@
 		</div>
 		<div class="col-md-4">
 			<div class="card text-white bg-primary">
-				<h5 class="card-header">
+				<h5 class="card-header bg-primary">
 					Communication
 				</h5>
 				<div class="card-body">
@@ -136,6 +139,59 @@
 
 			</div>
 		</div>
+         <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h4>
+					<strong>留下你的评论</strong>
+				</h4>
+			</div>
+		</div>
+	</div>
 	</div>
 </div>
+
+
+<div class="list-group">
+        {% for comment in comments %}
+            <a class="list-group-item list-group-item-action flex-column">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-success">{{ comment.author }}
+                        <small class="text-muted"> #{{ loop.revindex }}</small>
+                    </h5>
+                    <small data-toggle="tooltip" data-placement="top"
+                           data-timestamp="{{ comment.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}"
+                           data-delay="500">
+                            {{  comment.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}
+                            {{ moment(comment.timestamp).fromNow(refresh=True) }}
+                    </small>
+                </div>
+                <p class="mb-1">{{ comment.body }}</p>
+            </a>
+        {% endfor %}
+ </div>
+
+{% endblock %}
+
+
+
+
+{% block comments %}
+
+ <div class="hello-form">
+        {{ render_form(form, action=request.full_path) }}
+ </div>
+
+
+
 {% endblock %}

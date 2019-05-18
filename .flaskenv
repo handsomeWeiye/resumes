@@ -1,2 +1,2 @@
 FLASK_APP=qurey_systerm
-FLASK_ENV=development
+FLASK_ENV=testing

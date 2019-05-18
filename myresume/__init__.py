@@ -1,13 +1,21 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 from flask import Flask
+from flask_wtf import CSRFProtect
 from myresume.settings import config
 
 app = Flask(__name__)
-app.config.from_object(config['development'])
+bootstrap = Bootstrap(app)
+app.config.from_object(config['testing'])
+csrf = CSRFProtect(app)
 
 db = SQLAlchemy(app)
-bootstrap = Bootstrap(app)
+moment = Moment(app)
+
+
+from myresume import views
+
 
 
 

@@ -10,7 +10,7 @@ else:
     prefix = 'sqlite:////'
 
 class BaseConfig(object):
-    SECRET_KEY = os.getenv('SECRET_KEY','secret key')
+    SECRET_KEY = os.getenv('SECRET_KEY','dev')
 
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
