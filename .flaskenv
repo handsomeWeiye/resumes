@@ -1,2 +1,2 @@
-FLASK_APP=qurey_systerm
-FLASK_ENV=testing
+FLASK_APP=myresume
+FLASK_ENV=production

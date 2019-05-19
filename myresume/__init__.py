@@ -7,7 +7,7 @@ from myresume.settings import config
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-app.config.from_object(config['testing'])
+app.config.from_object(config['production'])
 csrf = CSRFProtect(app)
 
 db = SQLAlchemy(app)
